@@ -32,6 +32,7 @@ namespace Winter
         private string separatorFormat;
         private string artistFormat;
         private string albumFormat;
+        private string rightSeparatorFormat;
 
         public OutputFormat()
         {
@@ -45,6 +46,7 @@ namespace Winter
                 this.textBoxSeparatorFormat.Text = this.separatorFormat;
                 this.textBoxArtistFormat.Text = this.artistFormat;
                 this.textBoxAlbumFormat.Text = this.albumFormat;
+                this.textBoxRightSeparatorFormat.Text = this.rightSeparatorFormat;
             }
             catch
             {
@@ -84,6 +86,8 @@ namespace Winter
 
                 this.albumFormat = Convert.ToString(registryKey.GetValue("Album Format", Globals.DefaultAlbumFormat), CultureInfo.CurrentCulture);
 
+                this.rightSeparatorFormat = Convert.ToString(registryKey.GetValue("Right Separator Format", Globals.DefaultRightSeparatorFormat));
+                
                 registryKey.Close();
             }
             else
@@ -111,6 +115,8 @@ namespace Winter
             registryKey.SetValue("Artist Format", this.textBoxArtistFormat.Text, RegistryValueKind.String);
 
             registryKey.SetValue("Album Format", this.textBoxAlbumFormat.Text, RegistryValueKind.String);
+            
+            registryKey.SetValue("Right Separator Format", this.textBoxRightSeparatorFormat.Text, RegistryValueKind.String);
 
             registryKey.Close();
 
@@ -123,6 +129,7 @@ namespace Winter
             this.textBoxSeparatorFormat.Text = Globals.DefaultSeparatorFormat;
             this.textBoxArtistFormat.Text = Globals.DefaultArtistFormat;
             this.textBoxAlbumFormat.Text = Globals.DefaultAlbumFormat;
+            this.textBoxRightSeparatorFormat.Text = Globals.DefaultRightSeparatorFormat;
 
             Globals.RewriteUpdatedOutputFormat = true;
         }

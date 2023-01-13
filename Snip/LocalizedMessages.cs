@@ -27,6 +27,7 @@ namespace Winter
         public static string NoPlayer { get; set; }
         public static string Spotify { get; set; }
         public static string Itunes { get; set; }
+        public static string VLC { get; set; }
         public static string SwitchedToPlayer { get; set; }
         public static string PlayerIsNotRunning { get; set; }
         public static string NoTrackPlaying { get; set; }
@@ -42,6 +43,7 @@ namespace Winter
         public static string DisplayTrackPopup { get; set; }
         public static string EmptyFile { get; set; }
         public static string EnableHotkeys { get; set; }
+        public static string ShowFileInFolder { get; set; }
         public static string ExitApplication { get; set; }
         public static string ItunesException { get; set; }
         public static string SetOutputFormatForm { get; set; }
@@ -49,11 +51,13 @@ namespace Winter
         public static string SetSeparatorFormat { get; set; }
         public static string SetArtistFormat { get; set; }
         public static string SetAlbumFormat { get; set; }
+        public static string SetRightSeparatorFormat { get; set; }
         public static string ButtonDefaults { get; set; }
         public static string ButtonSave { get; set; }
         public static string TrackFormat { get; set; }
         public static string SeparatorFormat { get; set; }
         public static string ArtistFormat { get; set; }
         public static string AlbumFormat { get; set; }
+        public static string RightSeparatorFormat { get; set; }
     }
 }

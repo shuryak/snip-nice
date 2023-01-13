@@ -18,6 +18,8 @@
  */
 #endregion
 
+using System.Linq;
+
 namespace Winter
 {
     using System;
@@ -104,13 +106,25 @@ namespace Winter
                 // Set the text that appears on the notify icon.
                 SetNotifyIconText(text);
 
-                // Write the song title and artist to a text file.
-                File.WriteAllText(@Application.StartupPath + @"\Snip.txt", text);
-
-                // Display a popup message of the track.
-                if (Globals.DisplayTrackPopup)
+                int indexOfFirstHyphen = text.IndexOf("-", StringComparison.Ordinal);
+                
+                if (indexOfFirstHyphen > 0 && text.Count(x => x == '-') == 1)
                 {
-                    Globals.SnipNotifyIcon.ShowBalloonTip(500, "Snip", text, ToolTipIcon.None);
+                    string artist = text.Substring(0, indexOfFirstHyphen).Trim();
+                    string title = text.Substring(indexOfFirstHyphen + 1).Trim();
+                    
+                    UpdateText(title, artist);
+                }
+                else
+                {
+                    // Write the song title and artist to a text file.
+                    File.WriteAllText(Application.StartupPath + @"\Snip.txt", text + Globals.RightSeparatorFormat);
+                
+                    // Display a popup message of the track.
+                    if (Globals.DisplayTrackPopup)
+                    {
+                        Globals.SnipNotifyIcon.ShowBalloonTip(500, "Snip", text, ToolTipIcon.None);
+                    }   
                 }
             }
         }
@@ -132,7 +146,7 @@ namespace Winter
 
         public static void UpdateText(string title, string artist, string album, string trackId, string json)
         {
-            string output = Globals.TrackFormat + Globals.SeparatorFormat + Globals.ArtistFormat;
+            string output = Globals.TrackFormat + Globals.SeparatorFormat + Globals.ArtistFormat + Globals.RightSeparatorFormat;
 
             if (!string.IsNullOrEmpty(title))
             {
@@ -166,7 +180,7 @@ namespace Winter
                 SetNotifyIconText(output);
 
                 // Write the song title and artist to a text file.
-                File.WriteAllText(@Application.StartupPath + @"\Snip.txt", output);
+                File.WriteAllText(Application.StartupPath + @"\Snip.txt", output);
 
                 // Display a popup message of the track.
                 if (Globals.DisplayTrackPopup)
@@ -183,7 +197,7 @@ namespace Winter
                         artistOutput = artistOutput.Replace(Globals.ArtistVariableUppercase, artist.ToUpper(CultureInfo.CurrentCulture));
                         artistOutput = artistOutput.Replace(Globals.ArtistVariableLowercase, artist.ToLower(CultureInfo.CurrentCulture));
                         artistOutput = artistOutput.Replace(Globals.ArtistVariable, artist);
-                        File.WriteAllText(@Application.StartupPath + @"\Snip_Artist.txt", artistOutput);
+                        File.WriteAllText(Application.StartupPath + @"\Snip_Artist.txt", artistOutput);
                     }
 
                     string trackOutput = Globals.TrackFormat;
@@ -192,7 +206,7 @@ namespace Winter
                         trackOutput = trackOutput.Replace(Globals.TrackVariableUppercase, title.ToUpper(CultureInfo.CurrentCulture));
                         trackOutput = trackOutput.Replace(Globals.TrackVariableLowercase, title.ToLower(CultureInfo.CurrentCulture));
                         trackOutput = trackOutput.Replace(Globals.TrackVariable, title);
-                        File.WriteAllText(@Application.StartupPath + @"\Snip_Track.txt", trackOutput);
+                        File.WriteAllText(Application.StartupPath + @"\Snip_Track.txt", trackOutput);
                     }
 
                     string albumOutput = Globals.AlbumFormat;
@@ -201,17 +215,17 @@ namespace Winter
                         albumOutput = albumOutput.Replace(Globals.AlbumVariableUppercase, album.ToUpper(CultureInfo.CurrentCulture));
                         albumOutput = albumOutput.Replace(Globals.AlbumVariableLowercase, album.ToLower(CultureInfo.CurrentCulture));
                         albumOutput = albumOutput.Replace(Globals.AlbumVariable, album);
-                        File.WriteAllText(@Application.StartupPath + @"\Snip_Album.txt", albumOutput);
+                        File.WriteAllText(Application.StartupPath + @"\Snip_Album.txt", albumOutput);
                     }
 
-                    File.WriteAllText(@Application.StartupPath + @"\Snip_TrackId.txt", trackId);
-                    File.WriteAllText(@Application.StartupPath + @"\Snip_Metadata.json", json);
+                    File.WriteAllText(Application.StartupPath + @"\Snip_TrackId.txt", trackId);
+                    File.WriteAllText(Application.StartupPath + @"\Snip_Metadata.json", json);
                 }
 
                 // If saving track history is enabled, append that information to a separate file.
                 if (Globals.SaveHistory)
                 {
-                    File.AppendAllText(@Application.StartupPath + @"\Snip_History.txt", output + Environment.NewLine);
+                    File.AppendAllText(Application.StartupPath + @"\Snip_History.txt", output + Environment.NewLine);
                 }
             }
         }

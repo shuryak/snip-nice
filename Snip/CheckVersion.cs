@@ -31,31 +31,31 @@ namespace Winter
 
         public static bool IsNewVersionAvailable()
         {
-            DownloadJson();
-
-            if (!string.IsNullOrEmpty(json))
-            {
-                dynamic jsonSummary = SimpleJson.DeserializeObject(json);
-
-                if (jsonSummary != null)
-                {
-                    var latestVersionOnGithub = jsonSummary.tag_name.ToString().Replace("v", string.Empty);
-
-                    Version currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
-
-                    Version.TryParse(latestVersionOnGithub, out Version latestVersion);
-
-                    int comparison = latestVersion.CompareTo(currentVersion);
-
-                    // if comparison = -1 then latestVersion is older than currentVersion
-                    // if comparison =  0 then latestVersion is the same as currentVersion
-                    // if comparison =  1 then latestVersion is newer than currentVersion
-                    if (comparison > 0)
-                    {
-                        return true;
-                    }
-                }
-            }
+            // DownloadJson();
+            //
+            // if (!string.IsNullOrEmpty(json))
+            // {
+            //     dynamic jsonSummary = SimpleJson.DeserializeObject(json);
+            //
+            //     if (jsonSummary != null)
+            //     {
+            //         var latestVersionOnGithub = jsonSummary.tag_name.ToString().Replace("v", string.Empty);
+            //
+            //         Version currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            //
+            //         Version.TryParse(latestVersionOnGithub, out Version latestVersion);
+            //
+            //         int comparison = latestVersion.CompareTo(currentVersion);
+            //
+            //         // if comparison = -1 then latestVersion is older than currentVersion
+            //         // if comparison =  0 then latestVersion is the same as currentVersion
+            //         // if comparison =  1 then latestVersion is newer than currentVersion
+            //         if (comparison > 0)
+            //         {
+            //             return true;
+            //         }
+            //     }
+            // }
 
             return false;
         }

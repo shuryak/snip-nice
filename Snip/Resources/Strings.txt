@@ -14,6 +14,7 @@ NewVersionAvailable=New Version Available!
 NoPlayer=No Player Selected
 Spotify=Spotify
 Itunes=iTunes
+VLC=VLC
 
 ; This text is saved to the Snip.txt file when the user switches media players
 ; from the right-click context menu.
@@ -86,6 +87,10 @@ EmptyFile=Empty File If No Track Playing
 EnableHotkeys=Enable Hotkeys
 
 ; This text is displayed on the right-click context menu and, when clicked,
+; will open output folder.
+ShowFileInFolder=Show File In Folder
+
+; This text is displayed on the right-click context menu and, when clicked,
 ; will exit the application.
 ExitApplication=Exit
 
@@ -107,6 +112,7 @@ SetTrackFormat=Set Track Format ($$t):
 SetSeparatorFormat=Set Separator Format:
 SetArtistFormat=Set Artist Format ($$a):
 SetAlbumFormat=Set Album Format ($$l):
+SetRightSeparatorFormat=Set Right Separator Format:
 
 ; This text is displayed on the buttons within this form.  Clicking the
 ; Defaults button will restore the output format settings to their default
@@ -121,3 +127,4 @@ TrackFormat=“$$t”
 SeparatorFormat=―
 ArtistFormat=$$a
 AlbumFormat=$$l
+RightSeparatorFormat= 

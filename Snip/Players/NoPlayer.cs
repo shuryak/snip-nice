@@ -18,15 +18,9 @@
  */
 #endregion
 
-using System.Web.UI.WebControls;
-
-namespace Winter
+namespace Winter.Players
 {
     internal sealed class NoPlayer : MediaPlayer
     {
-        public override void Unload()
-        {
-            base.Unload();
-        }
     }
 }

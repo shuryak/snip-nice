@@ -1,6 +1,6 @@
 ﻿#region File Information
 /*
- * Copyright (C) 2012-2022 David Rudie
+ * Copyright (C) 2012-2018 David Rudie
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,28 @@ namespace Winter
 
         private readonly string defaultArtworkFile = @Application.StartupPath + @"\Snip_Artwork.jpg";
 
+        private StringBuilder title = new StringBuilder(256);
+
+        public bool Found { get; set; }
+
+        public bool NotRunning { get; set; }
+
         public bool SavedBlankImage { get; set; }
+
+        public IntPtr Handle { get; set; }
+
+        public StringBuilder Title
+        {
+            get
+            {
+                return this.title;
+            }
+
+            set
+            {
+                this.title = value;
+            }
+        }
 
         public string LastTitle { get; set; }
 
@@ -66,7 +87,11 @@ namespace Winter
         public virtual void Unload()
         {
             this.SaveBlankImage();
+            this.Found = false;
+            this.Handle = IntPtr.Zero;
+            this.NotRunning = true;
             this.LastTitle = string.Empty;
+            this.Title.Clear();
         }
 
         public virtual void ChangeToNextTrack()

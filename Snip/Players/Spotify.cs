@@ -18,20 +18,19 @@
  */
 #endregion
 
-namespace Winter
-{
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Specialized;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.IO;
-    using System.Net;
-    using System.Text;
-    using System.Timers;
-    using System.Windows.Forms;
-    using SimpleJson;
+using System;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Net;
+using System.Text;
+using System.Timers;
+using System.Windows.Forms;
 
+namespace Winter.Players
+{
     using Timer = System.Timers.Timer;
 
     internal sealed class Spotify : MediaPlayer, IDisposable
@@ -222,7 +221,7 @@ namespace Winter
 
             if (!string.IsNullOrEmpty(downloadedJson))
             {
-                dynamic jsonSummary = SimpleJson.DeserializeObject(downloadedJson);
+                dynamic jsonSummary = SimpleJson.SimpleJson.DeserializeObject(downloadedJson);
 
                 if (jsonSummary != null)
                 {
@@ -241,7 +240,7 @@ namespace Winter
 
             if (!string.IsNullOrEmpty(downloadedJson))
             {
-                dynamic jsonSummary = SimpleJson.DeserializeObject(downloadedJson);
+                dynamic jsonSummary = SimpleJson.SimpleJson.DeserializeObject(downloadedJson);
 
                 bool isPlaying = (bool)jsonSummary.is_playing;
 

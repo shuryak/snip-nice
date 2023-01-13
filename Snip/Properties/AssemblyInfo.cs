@@ -21,14 +21,13 @@
 using System;
 using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Snip")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Nice mod")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("David Rudie")]
 [assembly: AssemblyProduct("Snip")]
@@ -57,5 +56,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("8.0.1.0")]
 [assembly: AssemblyFileVersion("8.0.1.0")]
 
-[assembly: NeutralResourcesLanguageAttribute("en-US")]
+[assembly: NeutralResourcesLanguage("en-US")]
 [assembly: CLSCompliant(false)]

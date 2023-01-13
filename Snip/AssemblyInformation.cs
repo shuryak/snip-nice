@@ -18,6 +18,8 @@
  */
 #endregion
 
+using System.Linq;
+
 namespace Winter
 {
     using System;
@@ -81,12 +83,18 @@ namespace Winter
                 Version version = Assembly.GetExecutingAssembly().GetName().Version;
                 string shorterVersion = string.Format(
                     CultureInfo.InvariantCulture,
-                    " v{0}.{1}.{2}",
+                    "v{0}.{1}.{2}",
                     version.Major,
                     version.Minor,
                     version.Build);
                 return shorterVersion;
             }
         }
+
+        public static string AssemblyDescription => Assembly.GetExecutingAssembly()
+            .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)
+            .OfType<AssemblyDescriptionAttribute>()
+            .FirstOrDefault()?
+            .Description;
     }
 }
