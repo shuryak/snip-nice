@@ -56,7 +56,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Snip.snk</AssemblyOriginatorKeyFile>
@@ -106,11 +106,23 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.3.4.4\lib\net462\Svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yandex.Music.Api, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KM.Yandex.Music.Api.1.3.0\lib\netstandard2.0\Yandex.Music.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Yandex.Music.Client, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KM.Yandex.Music.Client.1.3.0\lib\netstandard2.0\Yandex.Music.Client.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiHelper.cs" />
@@ -132,6 +144,7 @@
     <Compile Include="Players\Spotify.cs" />
     <Compile Include="Players\Itunes.cs" />
     <Compile Include="Players\VLC.cs" />
+    <Compile Include="Players\YandexMusic.cs" />
     <Compile Include="ProcessFunctions.cs" />
     <Compile Include="ProcessMemoryChunk.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -151,6 +164,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextHandler.cs" />
     <Compile Include="UnsafeNativeMethods.cs" />
+    <Compile Include="YandexMusicAuthorization\PinCodeAuthUserControl.cs" />
+    <Compile Include="YandexMusicAuthorization\PinCodeAuthUserControl.Designer.cs" />
+    <Compile Include="YandexMusicAuthorization\QrCodeAuthUserControl.cs" />
+    <Compile Include="YandexMusicAuthorization\QrCodeAuthUserControl.Designer.cs" />
+    <Compile Include="YandexMusicAuthorization\YandexMusicAuthorization.cs" />
+    <Compile Include="YandexMusicAuthorization\YandexMusicAuthorization.Designer.cs" />
+    <Compile Include="YandexMusicAuthorization\YmAuthUserControl.cs" />
     <EmbeddedResource Include="OutputFormat.resx">
       <DependentUpon>OutputFormat.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,9 +181,11 @@
     <EmbeddedResource Include="Snip.resx">
       <DependentUpon>Snip.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="YandexMusicAuthorization\QrCodeAuthUserControl.resx" />
+    <EmbeddedResource Include="YandexMusicAuthorization\YandexMusicAuthorization.resx" />
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
-    <None Include="Snip.snk" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Snip.ico" />
