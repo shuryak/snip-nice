@@ -21,7 +21,6 @@
 namespace Winter
 {
     using System;
-    using System.Threading;
     using System.Windows.Forms;
 
     public static class Program
@@ -31,32 +30,8 @@ namespace Winter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //bool isNewProcess = false;
-
-            //Mutex mutex = null;
-
-            //try
-            //{
-                //mutex = new Mutex(true, Application.ProductName, out isNewProcess);
-
-                //if (isNewProcess)
-                //{
-                    Application.Run(new Snip());
-                    //mutex.ReleaseMutex();
-                //}
-                //// else
-                //// {
-                ////     MessageBox.Show("Another instance of " + Application.ProductName + " is already running.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //// }
-            //}
-            //finally
-            //{
-                //if (mutex != null)
-                //{
-                    //mutex.Close();
-                //}
-            //}
+            // TODO: Check for another instance is running
+            Application.Run(new Snip());
         }
     }
 }

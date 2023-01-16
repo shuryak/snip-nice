@@ -18,9 +18,9 @@
  */
 #endregion
 
-using System.ComponentModel;
 using System.IO;
 using Winter.Players;
+using Yandex.Music.Client;
 
 namespace Winter
 {
@@ -35,7 +35,8 @@ namespace Winter
     {
         #region Fields
 
-        KeyboardHook keyboardHook = new KeyboardHook();
+        private KeyboardHook _keyboardHook = new KeyboardHook();
+        private readonly YandexMusicClient _ymClient = new YandexMusicClient();
 
         #endregion
 
@@ -92,9 +93,10 @@ namespace Winter
             LocalizedMessages.SnipForm = Globals.ResourceManager.GetString("SnipForm");
             LocalizedMessages.NewVersionAvailable = Globals.ResourceManager.GetString("NewVersionAvailable");
             LocalizedMessages.NoPlayer = Globals.ResourceManager.GetString("NoPlayer");
-            LocalizedMessages.VLC = Globals.ResourceManager.GetString("VLC");
             LocalizedMessages.Spotify = Globals.ResourceManager.GetString("Spotify");
             LocalizedMessages.Itunes = Globals.ResourceManager.GetString("Itunes");
+            LocalizedMessages.YandexMusic = Globals.ResourceManager.GetString("YandexMusic");
+            LocalizedMessages.VLC = Globals.ResourceManager.GetString("VLC");
             LocalizedMessages.SwitchedToPlayer = Globals.ResourceManager.GetString("SwitchedToPlayer");
             LocalizedMessages.PlayerIsNotRunning = Globals.ResourceManager.GetString("PlayerIsNotRunning");
             LocalizedMessages.NoTrackPlaying = Globals.ResourceManager.GetString("NoTrackPlaying");
@@ -203,27 +205,27 @@ namespace Winter
         {
             if (this.toolStripMenuItemEnableHotkeys.Checked)
             {
-                if (this.keyboardHook == null)
+                if (this._keyboardHook == null)
                 {
-                    this.keyboardHook = new KeyboardHook();
+                    this._keyboardHook = new KeyboardHook();
                 }
 
-                this.keyboardHook.KeyPressed += new EventHandler<KeyPressedEventArgs>(KeyboardHook_KeyPressed);
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemOpenBrackets);    // [
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemCloseBrackets);   // ]
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Oemplus);            // +
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemMinus);           // -
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Enter);              // Enter
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Back);               // Backspace
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.M);                  // M
-                this.keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.P);                  // P
+                this._keyboardHook.KeyPressed += new EventHandler<KeyPressedEventArgs>(KeyboardHook_KeyPressed);
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemOpenBrackets);    // [
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemCloseBrackets);   // ]
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Oemplus);            // +
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.OemMinus);           // -
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Enter);              // Enter
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.Back);               // Backspace
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.M);                  // M
+                this._keyboardHook.RegisterHotkey(ModifierHookKeys.Control | ModifierHookKeys.Alt, Keys.P);                  // P
             }
             else
             {
-                if (this.keyboardHook != null)
+                if (this._keyboardHook != null)
                 {
-                    this.keyboardHook.Dispose();
-                    this.keyboardHook = null;
+                    this._keyboardHook.Dispose();
+                    this._keyboardHook = null;
                 }
             }
         }
@@ -242,6 +244,10 @@ namespace Winter
             {
                 this.TogglePlayer(Globals.MediaPlayerSelection.Itunes);
             }
+            else if (sender == this.toolStripMenuItemYandexMusic)
+            {
+                this.TogglePlayer(Globals.MediaPlayerSelection.YandexMusic);
+            }
             else if (sender == this.toolStripMenuItemVLC)
             {
                 this.TogglePlayer(Globals.MediaPlayerSelection.VLC);
@@ -253,11 +259,12 @@ namespace Winter
             this.toolStripMenuItemNoPlayer.Checked   = player == Globals.MediaPlayerSelection.NoPlayer;
             this.toolStripMenuItemSpotify.Checked    = player == Globals.MediaPlayerSelection.Spotify;
             this.toolStripMenuItemItunes.Checked     = player == Globals.MediaPlayerSelection.Itunes;
-            this.toolStripMenuItemVLC.Checked     = player == Globals.MediaPlayerSelection.VLC;
-
+            this.toolStripMenuItemYandexMusic.Checked     = player == Globals.MediaPlayerSelection.YandexMusic;
+            this.toolStripMenuItemVLC.Checked        = player == Globals.MediaPlayerSelection.VLC;
+            
             Globals.CurrentPlayer.Unload();
             string playerName = string.Empty;
-
+            
             switch (player)
             {
                 case Globals.MediaPlayerSelection.NoPlayer:
@@ -271,6 +278,10 @@ namespace Winter
                 case Globals.MediaPlayerSelection.Itunes:
                     Globals.CurrentPlayer = new Itunes();
                     playerName = LocalizedMessages.Itunes;
+                    break;
+                case Globals.MediaPlayerSelection.YandexMusic:
+                    Globals.CurrentPlayer = new YandexMusic(_ymClient);
+                    playerName = LocalizedMessages.YandexMusic;
                     break;
                 case Globals.MediaPlayerSelection.VLC:
                     Globals.CurrentPlayer = new VLC();

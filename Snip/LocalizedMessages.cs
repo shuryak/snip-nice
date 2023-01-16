@@ -27,6 +27,7 @@ namespace Winter
         public static string NoPlayer { get; set; }
         public static string Spotify { get; set; }
         public static string Itunes { get; set; }
+        public static string YandexMusic { get; set; }
         public static string VLC { get; set; }
         public static string SwitchedToPlayer { get; set; }
         public static string PlayerIsNotRunning { get; set; }

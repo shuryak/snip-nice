@@ -14,6 +14,7 @@ NewVersionAvailable=New Version Available!
 NoPlayer=No Player Selected
 Spotify=Spotify
 Itunes=iTunes
+YandexMusic=Yandex Music
 VLC=VLC
 
 ; This text is saved to the Snip.txt file when the user switches media players

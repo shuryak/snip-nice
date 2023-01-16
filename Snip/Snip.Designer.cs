@@ -11,6 +11,7 @@ namespace Winter
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNoPlayer;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSpotify;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemItunes;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemYandexMusic;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVLC;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetFormat;
@@ -47,9 +48,9 @@ namespace Winter
                 this.components.Dispose();
             }
 
-            if (disposing && (this.keyboardHook != null))
+            if (disposing && (this._keyboardHook != null))
             {
-                this.keyboardHook.Dispose();
+                this._keyboardHook.Dispose();
             }
 
             base.Dispose(disposing);
@@ -70,6 +71,7 @@ namespace Winter
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemNoPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSpotify = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemYandexMusic = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVLC = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemItunes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -100,7 +102,7 @@ namespace Winter
             // 
             // contextMenuStrip
             // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripMenuItemSnipVersion, this.toolStripSeparator, this.toolStripMenuItemNoPlayer, this.toolStripMenuItemSpotify, this.toolStripMenuItemItunes, this.toolStripMenuItemVLC, this.toolStripSeparator1, this.toolStripMenuItemSetFormat, this.toolStripSeparator2, this.toolStripMenuItemSaveSeparateFiles, this.toolStripMenuItemSaveAlbumArtwork, this.toolStripMenuItemKeepSpotifyAlbumArtwork, this.toolStripMenuItemCacheSpotifyMetadata, this.toolStripMenuItemSaveHistory, this.toolStripMenuItemDisplayTrackPopup, this.toolStripMenuItemEmptyFileIfNoTrackPlaying, this.toolStripMenuItemEnableHotkeys, this.toolStripMenuItemShowFileInFolder, this.toolStripSeparator3, this.toolStripMenuItemExit });
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toolStripMenuItemSnipVersion, this.toolStripSeparator, this.toolStripMenuItemNoPlayer, this.toolStripMenuItemSpotify, this.toolStripMenuItemItunes, this.toolStripMenuItemYandexMusic, this.toolStripMenuItemVLC, this.toolStripSeparator1, this.toolStripMenuItemSetFormat, this.toolStripSeparator2, this.toolStripMenuItemSaveSeparateFiles, this.toolStripMenuItemSaveAlbumArtwork, this.toolStripMenuItemKeepSpotifyAlbumArtwork, this.toolStripMenuItemCacheSpotifyMetadata, this.toolStripMenuItemSaveHistory, this.toolStripMenuItemDisplayTrackPopup, this.toolStripMenuItemEmptyFileIfNoTrackPlaying, this.toolStripMenuItemEnableHotkeys, this.toolStripMenuItemShowFileInFolder, this.toolStripSeparator3, this.toolStripMenuItemExit });
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(175, 358);
             // 
@@ -133,6 +135,22 @@ namespace Winter
             this.toolStripMenuItemSpotify.Click += new System.EventHandler(this.PlayerSelectionCheck);
             this.toolStripMenuItemSpotify.Image = global::Winter.Properties.Resources.SpotifyIcon;
             // 
+            // toolStripMenuItemItunes
+            //  
+            this.toolStripMenuItemItunes.Name = "toolStripMenuItemItunes";
+            this.toolStripMenuItemItunes.Size = new System.Drawing.Size(174, 22);
+            this.toolStripMenuItemItunes.Text = LocalizedMessages.Itunes;
+            this.toolStripMenuItemItunes.Click += new System.EventHandler(this.PlayerSelectionCheck);
+            this.toolStripMenuItemItunes.Image = global::Winter.Properties.Resources.ITunesIcon;
+            // 
+            // toolStripMenuItemYandexMusic
+            //  
+            this.toolStripMenuItemYandexMusic.Name = "toolStripMenuItemYandexMusic";
+            this.toolStripMenuItemYandexMusic.Size = new System.Drawing.Size(174, 22);
+            this.toolStripMenuItemYandexMusic.Text = LocalizedMessages.YandexMusic;
+            this.toolStripMenuItemYandexMusic.Click += new System.EventHandler(this.PlayerSelectionCheck);
+            this.toolStripMenuItemYandexMusic.Image = global::Winter.Properties.Resources.YandexMusicIcon;
+            // 
             // toolStripMenuItemVLC
             // 
             this.toolStripMenuItemVLC.Name = "toolStripMenuItemVLC";
@@ -140,15 +158,6 @@ namespace Winter
             this.toolStripMenuItemVLC.Text = LocalizedMessages.VLC;
             this.toolStripMenuItemVLC.Click += new System.EventHandler(this.PlayerSelectionCheck);
             this.toolStripMenuItemVLC.Image = global::Winter.Properties.Resources.VLCIcon;
-            
-            // toolStripMenuItemItunes
-                           //
-            //  
-            this.toolStripMenuItemItunes.Name = "toolStripMenuItemItunes";
-            this.toolStripMenuItemItunes.Size = new System.Drawing.Size(174, 22);
-            this.toolStripMenuItemItunes.Text = LocalizedMessages.Itunes;
-            this.toolStripMenuItemItunes.Click += new System.EventHandler(this.PlayerSelectionCheck);
-            this.toolStripMenuItemItunes.Image = global::Winter.Properties.Resources.ITunesIcon;
             // 
             // toolStripSeparator1
             // 

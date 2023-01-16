@@ -67,7 +67,6 @@ namespace Winter
         public static string DefaultArtistFormat { get; set; }
         public static string DefaultAlbumFormat { get; set; }
         public static string DefaultRightSeparatorFormat { get; set; }
-
         public static string TrackFormat { get; set; }
         public static string SeparatorFormat { get; set; }
         public static string ArtistFormat { get; set; }
@@ -93,7 +92,8 @@ namespace Winter
             NoPlayer = 0,
             Spotify = 1,
             Itunes = 2,
-            VLC = 3
+            YandexMusic = 3,
+            VLC = 4
         }
 
         public enum MediaCommand : int
