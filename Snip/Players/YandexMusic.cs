@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Timers;
+using Winter.YandexMultiStepAuth;
 using Yandex.Music.Api.Models.Artist;
 using Yandex.Music.Api.Models.Queue;
 using Yandex.Music.Api.Models.Track;
@@ -39,8 +40,8 @@ namespace Winter.Players
         private void AuthorizeSnip()
         {
             if (_ymClient.IsAuthorized) return;
-            YandexMusicAuthorization yandexMusicAuthorization = new YandexMusicAuthorization(_ymClient);
-            yandexMusicAuthorization.Show();
+            StartForm startForm = new StartForm(_ymClient);
+            startForm.Show();
         }
         
         private void UpdateYandexMusicTrackInformation_Elapsed(object sender, ElapsedEventArgs e)

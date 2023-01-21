@@ -72,9 +72,29 @@ namespace Winter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HidePasswordIcon {
+            get {
+                object obj = ResourceManager.GetObject("HidePasswordIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ITunesIcon {
             get {
                 object obj = ResourceManager.GetObject("ITunesIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowPasswordIcon {
+            get {
+                object obj = ResourceManager.GetObject("ShowPasswordIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

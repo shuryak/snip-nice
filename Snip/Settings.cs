@@ -75,6 +75,7 @@ namespace Winter
                 Globals.SeparatorFormat             = Convert.ToString(registryKey.GetValue("Separator Format", Globals.DefaultSeparatorFormat), CultureInfo.CurrentCulture);
                 Globals.ArtistFormat                = Convert.ToString(registryKey.GetValue("Artist Format", Globals.DefaultArtistFormat), CultureInfo.CurrentCulture);
                 Globals.AlbumFormat                 = Convert.ToString(registryKey.GetValue("Album Format", Globals.DefaultAlbumFormat), CultureInfo.CurrentCulture);
+                Globals.RightSeparatorFormat        = Convert.ToString(registryKey.GetValue("Right Separator Format", Globals.DefaultAlbumFormat), CultureInfo.CurrentCulture);
 
                 registryKey.Close();
             }

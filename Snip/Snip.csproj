@@ -106,22 +106,91 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExCSS, Version=4.1.4.0, Culture=neutral, PublicKeyToken=bdbe16be9b936b9a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExCSS.4.1.4\lib\net452\ExCSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler, Version=1.2.1.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.1.2.1\lib\netstandard2.0\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Snip">
+      <HintPath>obj\Debug\Snip.exe</HintPath>
+    </Reference>
     <Reference Include="Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
       <HintPath>..\packages\Svg.3.4.4\lib\net462\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Json.7.0.0\lib\net462\System.Net.Http.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Yandex.Music.Api, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KM.Yandex.Music.Api.1.3.0\lib\netstandard2.0\Yandex.Music.Api.dll</HintPath>
+    <Reference Include="Yandex.Music.Api, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KM.Yandex.Music.Api.1.3.1\lib\netstandard2.0\Yandex.Music.Api.dll</HintPath>
     </Reference>
-    <Reference Include="Yandex.Music.Client, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KM.Yandex.Music.Client.1.3.0\lib\netstandard2.0\Yandex.Music.Client.dll</HintPath>
+    <Reference Include="Yandex.Music.Client, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KM.Yandex.Music.Client.1.3.1\lib\netstandard2.0\Yandex.Music.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -164,13 +233,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextHandler.cs" />
     <Compile Include="UnsafeNativeMethods.cs" />
-    <Compile Include="YandexMusicAuthorization\PinCodeAuthUserControl.cs" />
-    <Compile Include="YandexMusicAuthorization\PinCodeAuthUserControl.Designer.cs" />
-    <Compile Include="YandexMusicAuthorization\QrCodeAuthUserControl.cs" />
-    <Compile Include="YandexMusicAuthorization\QrCodeAuthUserControl.Designer.cs" />
-    <Compile Include="YandexMusicAuthorization\YandexMusicAuthorization.cs" />
-    <Compile Include="YandexMusicAuthorization\YandexMusicAuthorization.Designer.cs" />
-    <Compile Include="YandexMusicAuthorization\YmAuthUserControl.cs" />
+    <Compile Include="YandexMultiStepAuth\AbstractControlDescriptionProvider.cs" />
+    <Compile Include="YandexMultiStepAuth\OtpUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\OtpUserControl.Designer.cs">
+      <DependentUpon>OtpUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\PasswordUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\PasswordUserControl.Designer.cs">
+      <DependentUpon>PasswordUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\QrCodeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\QrCodeUserControl.Designer.cs">
+      <DependentUpon>QrCodeUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\StartUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\StartUserControl.Designer.cs">
+      <DependentUpon>StartUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexMultiStepAuth\StepUserControl.cs" />
     <EmbeddedResource Include="OutputFormat.resx">
       <DependentUpon>OutputFormat.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,8 +275,21 @@
     <EmbeddedResource Include="Snip.resx">
       <DependentUpon>Snip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="YandexMusicAuthorization\QrCodeAuthUserControl.resx" />
-    <EmbeddedResource Include="YandexMusicAuthorization\YandexMusicAuthorization.resx" />
+    <EmbeddedResource Include="YandexMultiStepAuth\OtpUserControl.resx">
+      <DependentUpon>OtpUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YandexMultiStepAuth\PasswordUserControl.resx">
+      <DependentUpon>PasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YandexMultiStepAuth\QrCodeUserControl.resx">
+      <DependentUpon>QrCodeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YandexMultiStepAuth\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YandexMultiStepAuth\StartUserControl.resx">
+      <DependentUpon>StartUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
