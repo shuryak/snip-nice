@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yandex.Music.Api.Models.Account;
@@ -37,8 +36,9 @@ namespace Winter.YandexMultiStepAuth
                 Application.UseWaitCursor = false;
                 buttonLogin.Enabled = true;
 
-                string res = authTypes.AuthMethods.Aggregate(string.Empty, (current, authMethod) => current + (authMethod + Environment.NewLine));
-                MessageBox.Show(res);
+                // TODO: for debugging (remove in future)
+                // string res = authTypes.AuthMethods.Aggregate(string.Empty, (current, authMethod) => current + (authMethod + Environment.NewLine));
+                // MessageBox.Show(res);
                 
                 authTypes.PreferredAuthMethod = YAuthMethod.Otp; // TODO: for debugging (remove in future)
                 

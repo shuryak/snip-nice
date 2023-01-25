@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Svg;
+using Yandex.Music.Api.Models.Account;
 using Yandex.Music.Client;
 
 namespace Winter.YandexMultiStepAuth
@@ -47,12 +48,16 @@ namespace Winter.YandexMultiStepAuth
             Application.UseWaitCursor = true;
             buttonAccept.Enabled = false;
             
-            bool ok = await Task.Run(TryAuthorize);
+            YAuthQRStatus authStatus = await Task.Run(TryAuthorize);
             
-            if (ok)
+            if (authStatus.Status == YAuthStatus.Ok)
             {
                 ParentForm.Close();
                 MessageBox.Show("Авторизация прошла успешно");
+            }
+            else if (authStatus.Errors?.Contains(YAuthError.CaptchaRequired) != null)
+            {
+                MessageBox.Show("Требуется ввод капчи, такая возможность не реализована в данный момент");
             }
             else
             {
@@ -63,23 +68,10 @@ namespace Winter.YandexMultiStepAuth
             Application.UseWaitCursor = false;
         }
 
-        private Task<bool> TryAuthorize()
+        private Task<YAuthQRStatus> TryAuthorize()
         {
-            bool ok;
-            try
-            {
-                ok = _ymClient.AuthorizeByQR();
-                if (ok)
-                {
-                    ok = _ymClient.Authorize(_ymClient.GetAccessToken().AccessToken);
-                }
-            }
-            catch (Exception)
-            {
-                ok = false;
-            }
-
-            return Task.FromResult(ok);
+            YAuthQRStatus qrStatus = _ymClient.AuthorizeByQR();
+            return Task.FromResult(qrStatus);
         }
         
         private Task<string> GetQrCodeLink()
